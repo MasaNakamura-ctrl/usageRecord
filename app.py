@@ -18,12 +18,6 @@ def add_data(usrName, usageDate, kisJkn, kisHun, sryJkn, sryHun):
     conn.commit()
     st.write('登録しました。ページの再読み込みをしてください。')
 
-# データを初期化する
-def clear_data():
-    c.execute('DELETE FROM usageRecord')
-    conn.commit()
-    st.write('データを初期化しました。')
-
 # データベースにテーブルを作成する
 c.execute('CREATE TABLE IF NOT EXISTS usageRecord (id INTEGER PRIMARY KEY, usrName text, usageDate text, kisJkn text, kisHun text, sryJkn text, sryHun text)')
 
@@ -65,7 +59,5 @@ if st.button('登録'):
     add_data(usrName, usageDate, kisJkn, kisHun, sryJkn, sryHun)
 if st.button('履歴'):
     show_data()
-if st.button('初期化'):
-    clear_data()
 # データベースをクローズする
 conn.close()
