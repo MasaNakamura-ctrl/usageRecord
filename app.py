@@ -26,34 +26,32 @@ st.write('利用者名と入退室時間を登録してください。')
 
 usrName = st.selectbox(
     '利用者名',
-    ['AAAA', 'BBBB', 'CCCC']
+    ['AAAA', 'BBBB', 'CCCC', 'DDDD']
 )
 
 minDate = datetime.date(1900, 1, 1)
 maxDate = datetime.date(2100, 12, 31)
 usageDate = st.date_input('利用日を入力してください。', datetime.date(2024, 4, 1), min_value=minDate, max_value=maxDate)
 
-colJkn, colHun = st.columns(2)
+kisJkn = st.selectbox(
+    '入室時間(時)',
+    ['9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23']
+)
 
-with colJkn:
-    kisJkn = st.selectbox(
-        '入室時間(時)',
-        ['9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23']
-    )
-    sryJkn = st.selectbox(
-        '退室時間(時)',
-        ['9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23']
-    )
+kisHun = st.selectbox(
+    '入室時間(分)',
+    ['00', '15', '30', '45']
+)
 
-with colHun:
-    kisHun = st.selectbox(
-        '入室時間(分)',
-        ['00', '15', '30', '45']
-    )
-    sryHun = st.selectbox(
-        '退室時間(分)',
-        ['00', '15', '30', '45']
-    )
+sryJkn = st.selectbox(
+    '退室時間(時)',
+    ['9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23']
+)
+
+sryHun = st.selectbox(
+    '退室時間(分)',
+    ['00', '15', '30', '45']
+)
 
 if st.button('登録'):
     add_data(usrName, usageDate, kisJkn, kisHun, sryJkn, sryHun)
