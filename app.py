@@ -39,7 +39,7 @@ minDate = datetime.date(1900, 1, 1)
 maxDate = datetime.date(2100, 12, 31)
 usageDate = st.date_input('利用日を入力してください。', datetime.date(2024, 4, 1), min_value=minDate, max_value=maxDate)
 
-colJkn, colHun = st.beta_columns(2)
+colJkn, colHun = st.columns(2)
 
 with colJkn:
     kisJkn = st.selectbox(
