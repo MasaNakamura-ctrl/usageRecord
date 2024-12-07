@@ -16,7 +16,7 @@ def show_data():
 def add_data(usrName, usageDate, kisJkn, kisHun, sryJkn, sryHun):
     c.execute('INSERT INTO usageRecord (usrName, usageDate, kisJkn, kisHun, sryJkn, sryHun) VALUES (?, ?, ?, ?, ?, ?)', (usrName, usageDate, kisJkn, kisHun, sryJkn, sryHun))
     conn.commit()
-    st.write('登録しました。ページの再読み込みをしてください。')
+    st.write('登録しました。')
 
 # データベースにテーブルを作成する
 c.execute('CREATE TABLE IF NOT EXISTS usageRecord (id INTEGER PRIMARY KEY, usrName text, usageDate text, kisJkn text, kisHun text, sryJkn text, sryHun text)')
